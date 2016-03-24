@@ -68,7 +68,7 @@ module.exports = function(grunt) {
 
 	// Default task.
 	
-	var target = grunt.option('target') || 'def';
+	var target = grunt.option('target') || 'spa';
 	
 	grunt.registerTask('default', ['connect', 'sass', 'docbase:'+target]);
 	grunt.registerTask('publish', ['connect', 'sass', 'docbase:'+target, 'gh-pages']);
