@@ -14,9 +14,9 @@ var docbaseConfig = {
   "github": {
     "user": "farhan687",
     "repo": "airbnb",
-    "path": "src",
+    "path": "source",
     "branch": "master",
-    "access_token": "945751d3f595b888024dbcab62b339134d2cac9f"
+    "access_token": "MzNlYmQ5NzA3NWQyODAyZGZiZDE2ZjBiZjkzMGViZWI0NmU5MDVjNQ=="
   },
   "indexHtml": "./html/main.html",
   "flatdocHtml": "./bower_components/docbase/html/flatdoc.html",

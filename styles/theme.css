@@ -1,11 +1,13 @@
 .landing, .button, .navbar-fixed-top {
-  background-color: #ff5a5f; }
+  background-color: #5ABCFF; }
 
 .index-container li a, .menu a, .menu a:visited, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover, a, ul.nav li.dropdown:hover > a {
-  color: #ff5a5f; }
+  color: #5ABCFF; }
 
 a:active, a:hover, .menu a:hover {
-  color: #ff272e; }
+  color: #27a7ff; }
 
 .tt-menu:before {
-  border-bottom-color: #ff5a5f; }
+  border-bottom-color: #5ABCFF; }
+
+/*# sourceMappingURL=theme.css.map */
