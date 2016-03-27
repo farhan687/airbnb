@@ -68,6 +68,7 @@ Other Style Guides
     bar = 9;
 
     console.log(foo, bar); // => 1, 9
+    
     ```
 
   <a name="types--complex"></a><a name="1.2"></a>
