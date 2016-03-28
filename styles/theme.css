@@ -10,4 +10,11 @@ a:active, a:hover, .menu a:hover {
 .tt-menu:before {
   border-bottom-color: #61CBBE; }
 
+.paginationLink {
+  border-color: #61CBBE; }
+
+.paginationLink:hover {
+  background: #61CBBE;
+  border-color: #3ebbac; }
+
 /*# sourceMappingURL=theme.css.map */
