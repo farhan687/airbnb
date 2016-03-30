@@ -20,7 +20,7 @@ var docbaseConfig = {
   },
   "indexHtml": "./html/main.html",
   "flatdocHtml": "./bower_components/docbase/html/flatdoc.html",
-  "html5mode": false,
+  "html5mode": true,
   "default_version": null,
   "versions" : {
     "v1": [{
