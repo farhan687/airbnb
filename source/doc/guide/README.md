@@ -3,7 +3,7 @@
 *A mostly reasonable approach to JavaScript*
 
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Gitter](https://badges.gitter.im/Join\ Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Other Style Guides
  - [ES5](es5/)
@@ -48,7 +48,6 @@ Other Style Guides
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 ## References
 
@@ -99,7 +98,6 @@ Other Style Guides
     console.log(b); // ReferenceError
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Objects
 
@@ -270,7 +268,6 @@ Other Style Guides
   };
   ```
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Arrays
 
@@ -372,7 +369,6 @@ Other Style Guides
     });
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Destructuring
 
@@ -442,7 +438,6 @@ Other Style Guides
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Strings
 
@@ -509,7 +504,6 @@ Other Style Guides
   <a name="strings--eval"></a><a name="6.5"></a>
   - [6.5](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Functions
@@ -726,7 +720,6 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
 
@@ -839,7 +832,6 @@ Other Style Guides
     const itemHeight = (item) => { return item.height > 256 ? item.largeSize : item.smallSize; }
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Constructors
@@ -984,7 +976,6 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Modules
@@ -1037,7 +1028,6 @@ Other Style Guides
     export default es6;
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Iterators and Generators
 
@@ -1072,7 +1062,6 @@ Other Style Guides
 
     > Why? They don't transpile well to ES5.
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Properties
@@ -1109,7 +1098,6 @@ Other Style Guides
     const isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Variables
@@ -1213,7 +1201,6 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Hoisting
@@ -1313,7 +1300,6 @@ Other Style Guides
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Comparison Operators & Equality
@@ -1453,7 +1439,6 @@ Other Style Guides
     const baz = !c;
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Blocks
@@ -1506,7 +1491,6 @@ Other Style Guides
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Comments
@@ -1614,7 +1598,6 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Whitespace
@@ -1937,7 +1920,6 @@ Other Style Guides
       .fail(() => console.log('You have failed this city.'));
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Commas
 
@@ -2020,7 +2002,6 @@ Other Style Guides
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Semicolons
@@ -2050,7 +2031,6 @@ Other Style Guides
 
     [Read more](http://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Type Casting & Coercion
@@ -2137,7 +2117,6 @@ Other Style Guides
     const hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Naming Conventions
@@ -2280,7 +2259,6 @@ Other Style Guides
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Accessors
@@ -2340,7 +2318,6 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Events
@@ -2372,7 +2349,6 @@ Other Style Guides
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
 
 
 ## jQuery
@@ -2442,7 +2418,6 @@ Other Style Guides
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## ECMAScript 5 Compatibility
@@ -2450,7 +2425,6 @@ Other Style Guides
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
   - [26.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.io/es5-compat-table/).
 
-**[⬆ back to top](#table-of-contents)**
 
 ## ECMAScript 6 Styles
 
@@ -2471,7 +2445,6 @@ Other Style Guides
 1. [Iterators and Generators](#iterators-and-generators)
 1. [Modules](#modules)
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Testing
 
@@ -2493,7 +2466,6 @@ Other Style Guides
    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Performance
@@ -2507,7 +2479,6 @@ Other Style Guides
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Resources
@@ -2589,7 +2560,6 @@ Other Style Guides
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
 
-**[⬆ back to top](#table-of-contents)**
 
 ## In the Wild
 
@@ -2660,7 +2630,6 @@ Other Style Guides
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Translation
 
@@ -2720,7 +2689,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
 
 ## Amendments
 
