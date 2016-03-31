@@ -56,7 +56,7 @@ Other Style Guides
 
     > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
 
-    ```javascript
+    ```js
     // bad
     var a = 1;
     var b = 2;
