@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 				options: {
 					generatePath: "docs_html/",
 					generateSearchIndex: true,
-					generateHtml: false,
+					generateHtml: true,
 					baseUrl: "./",
 					operation: 'parallel',
 					urlToAccess: "http://localhost:9001/",
