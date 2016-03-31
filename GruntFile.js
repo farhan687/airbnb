@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 		'gh-pages': {
 			def: {
 				options: {
-					base: 'spa',
+					base: 'docs_html',
 					user: {
 						name: 'Docbase bot',
 						email: 'awesome@docba.se'
