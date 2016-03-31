@@ -1662,47 +1662,47 @@ const hero = {
   superPower: 'computers',
 };
 ```</span></code></pre><p>  <a name="commas--dangling"></a><a name="19.2"></a>
-  - <a href="#commas--dangling">19.2</a> Additional trailing comma: <strong>Yup.</strong> eslint: <a href="http://eslint.org/docs/rules/comma-dangle.html"><code>comma-dangle</code></a> jscs: <a href="http://jscs.info/rule/requireTrailingComma"><code>requireTrailingComma</code></a></p><pre><code class="prettyprint prettyprinted" style=""><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Why</span><span class="pun">?</span><span class="pln"> </span><span class="typ">This</span><span class="pln"> leads to cleaner git diffs</span><span class="pun">.</span><span class="pln"> </span><span class="typ">Also</span><span class="pun">,</span><span class="pln"> transpilers like </span><span class="typ">Babel</span><span class="pln"> will remove the additional trailing comma </span><span class="kwd">in</span><span class="pln"> the transpiled code which means you don</span><span class="str">'t have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
+  - <a href="#commas--dangling">19.2</a> Additional trailing comma: <strong>Yup.</strong> eslint: <a href="http://eslint.org/docs/rules/comma-dangle.html"><code>comma-dangle</code></a> jscs: <a href="http://jscs.info/rule/requireTrailingComma"><code>requireTrailingComma</code></a></p><pre><code class="prettyprint">&gt; Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
 
 ```javascript
 // bad - git diff without trailing comma
 const hero = {
-     firstName: '</span><span class="typ">Florence</span><span class="str">',
--    lastName: '</span><span class="typ">Nightingale</span><span class="str">'
-+    lastName: '</span><span class="typ">Nightingale</span><span class="str">',
-+    inventorOf: ['</span><span class="pln">coxcomb graph</span><span class="str">', '</span><span class="pln">modern nursing</span><span class="str">']
+     firstName: 'Florence',
+-    lastName: 'Nightingale'
++    lastName: 'Nightingale',
++    inventorOf: ['coxcomb graph', 'modern nursing']
 };
 
 // good - git diff with trailing comma
 const hero = {
-     firstName: '</span><span class="typ">Florence</span><span class="str">',
-     lastName: '</span><span class="typ">Nightingale</span><span class="str">',
-+    inventorOf: ['</span><span class="pln">coxcomb chart</span><span class="str">', '</span><span class="pln">modern nursing</span><span class="str">'],
+     firstName: 'Florence',
+     lastName: 'Nightingale',
++    inventorOf: ['coxcomb chart', 'modern nursing'],
 };
 
 // bad
 const hero = {
-  firstName: '</span><span class="typ">Dana</span><span class="str">',
-  lastName: '</span><span class="typ">Scully</span><span class="str">'
+  firstName: 'Dana',
+  lastName: 'Scully'
 };
 
 const heroes = [
-  '</span><span class="typ">Batman</span><span class="str">',
-  '</span><span class="typ">Superman</span><span class="str">'
+  'Batman',
+  'Superman'
 ];
 
 // good
 const hero = {
-  firstName: '</span><span class="typ">Dana</span><span class="str">',
-  lastName: '</span><span class="typ">Scully</span><span class="str">',
+  firstName: 'Dana',
+  lastName: 'Scully',
 };
 
 const heroes = [
-  '</span><span class="typ">Batman</span><span class="str">',
-  '</span><span class="typ">Superman</span><span class="str">',
+  'Batman',
+  'Superman',
 ];
-```</span></code></pre><h2 id="airbnb-javascript-style-guide-semicolons">Semicolons</h2><p>  <a name="semicolons--required"></a><a name="20.1"></a>
-  - <a href="#20.1">20.1</a> <strong>Yup.</strong> eslint: <a href="http://eslint.org/docs/rules/semi.html"><code>semi</code></a> jscs: <a href="http://jscs.info/rule/requireSemicolons"><code>requireSemicolons</code></a></p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><h2 id="airbnb-javascript-style-guide-semicolons">Semicolons</h2><p>  <a name="semicolons--required"></a><a name="20.1"></a>
+  - <a href="#20.1">20.1</a> <strong>Yup.</strong> eslint: <a href="http://eslint.org/docs/rules/semi.html"><code>semi</code></a> jscs: <a href="http://jscs.info/rule/requireSemicolons"><code>requireSemicolons</code></a></p><pre><code class="prettyprint">```javascript
 // bad
 (function () {
   const name = 'Skywalker'
@@ -1720,11 +1720,11 @@ const heroes = [
   const name = 'Skywalker';
   return name;
 }());
-```</span><span class="pln">
+```
 
-</span><span class="pun">[</span><span class="typ">Read</span><span class="pln"> more</span><span class="pun">](</span><span class="pln">http</span><span class="pun">:</span><span class="com">//stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).</span></code></pre><h2 id="airbnb-javascript-style-guide-type-casting-coercion">Type Casting &amp; Coercion</h2><p>  <a name="coercion--explicit"></a><a name="21.1"></a>
+[Read more](http://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).</code></pre><h2 id="airbnb-javascript-style-guide-type-casting-coercion">Type Casting &amp; Coercion</h2><p>  <a name="coercion--explicit"></a><a name="21.1"></a>
   - <a href="#coercion--explicit">21.1</a> Perform type coercion at the beginning of the statement.</p><p>  <a name="coercion--strings"></a><a name="21.2"></a>
-  - <a href="#coercion--strings">21.2</a>  Strings:</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+  - <a href="#coercion--strings">21.2</a>  Strings:</p><pre><code class="prettyprint">```javascript
 // =&gt; this.reviewScore = 9;
 
 // bad
@@ -1735,8 +1735,8 @@ const totalScore = this.reviewScore.toString(); // isn't guaranteed to return a 
 
 // good
 const totalScore = String(this.reviewScore);
-```</span></code></pre><p>  <a name="coercion--numbers"></a><a name="21.3"></a>
-  - <a href="#coercion--numbers">21.3</a> Numbers: Use <code>Number</code> for type casting and <code>parseInt</code> always with a radix for parsing strings. eslint: <a href="http://eslint.org/docs/rules/radix"><code>radix</code></a></p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="coercion--numbers"></a><a name="21.3"></a>
+  - <a href="#coercion--numbers">21.3</a> Numbers: Use <code>Number</code> for type casting and <code>parseInt</code> always with a radix for parsing strings. eslint: <a href="http://eslint.org/docs/rules/radix"><code>radix</code></a></p><pre><code class="prettyprint">```javascript
 const inputValue = '4';
 
 // bad
@@ -1756,8 +1756,8 @@ const val = Number(inputValue);
 
 // good
 const val = parseInt(inputValue, 10);
-```</span></code></pre><p>  <a name="coercion--comment-deviations"></a><a name="21.4"></a>
-  - <a href="#coercion--comment-deviations">21.4</a> If for whatever reason you are doing something wild and <code>parseInt</code> is your bottleneck and need to use Bitshift for <a href="http://jsperf.com/coercion-vs-casting/3">performance reasons</a>, leave a comment explaining why and what you’re doing.</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="coercion--comment-deviations"></a><a name="21.4"></a>
+  - <a href="#coercion--comment-deviations">21.4</a> If for whatever reason you are doing something wild and <code>parseInt</code> is your bottleneck and need to use Bitshift for <a href="http://jsperf.com/coercion-vs-casting/3">performance reasons</a>, leave a comment explaining why and what you’re doing.</p><pre><code class="prettyprint">```javascript
 // good
 /**
  * parseInt was the reason my code was slow.
@@ -1765,13 +1765,13 @@ const val = parseInt(inputValue, 10);
  * Number made it a lot faster.
  */
 const val = inputValue &gt;&gt; 0;
-```</span></code></pre><p>  <a name="coercion--bitwise"></a><a name="21.5"></a>
-  - <a href="#coercion--bitwise">21.5</a> <strong>Note:</strong> Be careful when using bitshift operations. Numbers are represented as <a href="http://es5.github.io/#x4.3.19">64-bit values</a>, but bitshift operations always return a 32-bit integer (<a href="http://es5.github.io/#x11.7">source</a>). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. <a href="https://github.com/airbnb/javascript/issues/109">Discussion</a>. Largest signed 32-bit Int is 2,147,483,647:</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="coercion--bitwise"></a><a name="21.5"></a>
+  - <a href="#coercion--bitwise">21.5</a> <strong>Note:</strong> Be careful when using bitshift operations. Numbers are represented as <a href="http://es5.github.io/#x4.3.19">64-bit values</a>, but bitshift operations always return a 32-bit integer (<a href="http://es5.github.io/#x11.7">source</a>). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. <a href="https://github.com/airbnb/javascript/issues/109">Discussion</a>. Largest signed 32-bit Int is 2,147,483,647:</p><pre><code class="prettyprint">```javascript
 2147483647 &gt;&gt; 0 //=&gt; 2147483647
 2147483648 &gt;&gt; 0 //=&gt; -2147483648
 2147483649 &gt;&gt; 0 //=&gt; -2147483647
-```</span></code></pre><p>  <a name="coercion--booleans"></a><a name="21.6"></a>
-  - <a href="#coercion--booleans">21.6</a> Booleans:</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="coercion--booleans"></a><a name="21.6"></a>
+  - <a href="#coercion--booleans">21.6</a> Booleans:</p><pre><code class="prettyprint">```javascript
 const age = 0;
 
 // bad
@@ -1782,8 +1782,8 @@ const hasAge = Boolean(age);
 
 // good
 const hasAge = !!age;
-```</span></code></pre><h2 id="airbnb-javascript-style-guide-naming-conventions">Naming Conventions</h2><p>  <a name="naming--descriptive"></a><a name="22.1"></a>
-  - <a href="#naming--descriptive">22.1</a> Avoid single letter names. Be descriptive with your naming.</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><h2 id="airbnb-javascript-style-guide-naming-conventions">Naming Conventions</h2><p>  <a name="naming--descriptive"></a><a name="22.1"></a>
+  - <a href="#naming--descriptive">22.1</a> Avoid single letter names. Be descriptive with your naming.</p><pre><code class="prettyprint">```javascript
 // bad
 function q() {
   // ...stuff...
@@ -1793,8 +1793,8 @@ function q() {
 function query() {
   // ..stuff..
 }
-```</span></code></pre><p>  <a name="naming--camelCase"></a><a name="22.2"></a>
-  - <a href="#naming--camelCase">22.2</a> Use camelCase when naming objects, functions, and instances. eslint: <a href="http://eslint.org/docs/rules/camelcase.html"><code>camelcase</code></a> jscs: <a href="http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers"><code>requireCamelCaseOrUpperCaseIdentifiers</code></a></p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="naming--camelCase"></a><a name="22.2"></a>
+  - <a href="#naming--camelCase">22.2</a> Use camelCase when naming objects, functions, and instances. eslint: <a href="http://eslint.org/docs/rules/camelcase.html"><code>camelcase</code></a> jscs: <a href="http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers"><code>requireCamelCaseOrUpperCaseIdentifiers</code></a></p><pre><code class="prettyprint">```javascript
 // bad
 const OBJEcttsssss = {};
 const this_is_my_object = {};
@@ -1803,8 +1803,8 @@ function c() {}
 // good
 const thisIsMyObject = {};
 function thisIsMyFunction() {}
-```</span></code></pre><p>  <a name="naming--PascalCase"></a><a name="22.3"></a>
-  - <a href="#naming--PascalCase">22.3</a> Use PascalCase only when naming constructors or classes. eslint: <a href="http://eslint.org/docs/rules/new-cap.html"><code>new-cap</code></a> jscs: <a href="http://jscs.info/rule/requireCapitalizedConstructors"><code>requireCapitalizedConstructors</code></a></p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="naming--PascalCase"></a><a name="22.3"></a>
+  - <a href="#naming--PascalCase">22.3</a> Use PascalCase only when naming constructors or classes. eslint: <a href="http://eslint.org/docs/rules/new-cap.html"><code>new-cap</code></a> jscs: <a href="http://jscs.info/rule/requireCapitalizedConstructors"><code>requireCapitalizedConstructors</code></a></p><pre><code class="prettyprint">```javascript
 // bad
 function user(options) {
   this.name = options.name;
@@ -1824,16 +1824,16 @@ class User {
 const good = new User({
   name: 'yup',
 });
-```</span></code></pre><p>  <a name="naming--leading-underscore"></a><a name="22.4"></a>
-  - <a href="#naming--leading-underscore">22.4</a> Use a leading underscore <code>_</code> when naming private properties. eslint: <a href="http://eslint.org/docs/rules/no-underscore-dangle.html"><code>no-underscore-dangle</code></a> jscs: <a href="http://jscs.info/rule/disallowDanglingUnderscores"><code>disallowDanglingUnderscores</code></a></p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="naming--leading-underscore"></a><a name="22.4"></a>
+  - <a href="#naming--leading-underscore">22.4</a> Use a leading underscore <code>_</code> when naming private properties. eslint: <a href="http://eslint.org/docs/rules/no-underscore-dangle.html"><code>no-underscore-dangle</code></a> jscs: <a href="http://jscs.info/rule/disallowDanglingUnderscores"><code>disallowDanglingUnderscores</code></a></p><pre><code class="prettyprint">```javascript
 // bad
 this.__firstName__ = 'Panda';
 this.firstName_ = 'Panda';
 
 // good
 this._firstName = 'Panda';
-```</span></code></pre><p>  <a name="naming--self-this"></a><a name="22.5"></a>
-  - <a href="#naming--self-this">22.5</a> Don’t save references to <code>this</code>. Use arrow functions or Function#bind. jscs: <a href="http://jscs.info/rule/disallowNodeTypes"><code>disallowNodeTypes</code></a></p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="naming--self-this"></a><a name="22.5"></a>
+  - <a href="#naming--self-this">22.5</a> Don’t save references to <code>this</code>. Use arrow functions or Function#bind. jscs: <a href="http://jscs.info/rule/disallowNodeTypes"><code>disallowNodeTypes</code></a></p><pre><code class="prettyprint">```javascript
 // bad
 function foo() {
   const self = this;
@@ -1856,8 +1856,8 @@ function foo() {
     console.log(this);
   };
 }
-```</span></code></pre><p>  <a name="naming--filename-matches-export"></a><a name="22.6"></a>
-  - <a href="#naming--filename-matches-export">22.6</a> If your file exports a single class, your filename should be exactly the name of the class.</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="naming--filename-matches-export"></a><a name="22.6"></a>
+  - <a href="#naming--filename-matches-export">22.6</a> If your file exports a single class, your filename should be exactly the name of the class.</p><pre><code class="prettyprint">```javascript
 // file contents
 class CheckBox {
   // ...
@@ -1873,23 +1873,23 @@ import CheckBox from './check_box';
 
 // good
 import CheckBox from './CheckBox';
-```</span></code></pre><p>  <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
-  - <a href="#naming--camelCase-default-export">22.7</a> Use camelCase when you export-default a function. Your filename should be identical to your function’s name.</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
+  - <a href="#naming--camelCase-default-export">22.7</a> Use camelCase when you export-default a function. Your filename should be identical to your function’s name.</p><pre><code class="prettyprint">```javascript
 function makeStyleGuide() {
 }
 
 export default makeStyleGuide;
-```</span></code></pre><p>  <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
-  - <a href="#naming--PascalCase-singleton">22.8</a> Use PascalCase when you export a singleton / function library / bare object.</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
+  - <a href="#naming--PascalCase-singleton">22.8</a> Use PascalCase when you export a singleton / function library / bare object.</p><pre><code class="prettyprint">```javascript
 const AirbnbStyleGuide = {
   es6: {
   }
 };
 
 export default AirbnbStyleGuide;
-```</span></code></pre><h2 id="airbnb-javascript-style-guide-accessors">Accessors</h2><p>  <a name="accessors--not-required"></a><a name="23.1"></a>
+```</code></pre><h2 id="airbnb-javascript-style-guide-accessors">Accessors</h2><p>  <a name="accessors--not-required"></a><a name="23.1"></a>
   - <a href="#accessors--not-required">23.1</a> Accessor functions for properties are not required.</p><p>  <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
-  - <a href="#accessors--no-getters-setters">23.2</a> Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal(‘hello’).</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+  - <a href="#accessors--no-getters-setters">23.2</a> Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal(‘hello’).</p><pre><code class="prettyprint">```javascript
 // bad
 dragon.age();
 
@@ -1901,8 +1901,8 @@ dragon.age(25);
 
 // good
 dragon.setAge(25);
-```</span></code></pre><p>  <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
-  - <a href="#accessors--boolean-prefix">23.3</a> If the property/method is a <code>boolean</code>, use <code>isVal()</code> or <code>hasVal()</code>.</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
+  - <a href="#accessors--boolean-prefix">23.3</a> If the property/method is a <code>boolean</code>, use <code>isVal()</code> or <code>hasVal()</code>.</p><pre><code class="prettyprint">```javascript
 // bad
 if (!dragon.age()) {
   return false;
@@ -1912,8 +1912,8 @@ if (!dragon.age()) {
 if (!dragon.hasAge()) {
   return false;
 }
-```</span></code></pre><p>  <a name="accessors--consistent"></a><a name="23.4"></a>
-  - <a href="#accessors--consistent">23.4</a> It’s okay to create get() and set() functions, but be consistent.</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="accessors--consistent"></a><a name="23.4"></a>
+  - <a href="#accessors--consistent">23.4</a> It’s okay to create get() and set() functions, but be consistent.</p><pre><code class="prettyprint">```javascript
 class Jedi {
   constructor(options = {}) {
     const lightsaber = options.lightsaber || 'blue';
@@ -1928,8 +1928,8 @@ class Jedi {
     return this[key];
   }
 }
-```</span></code></pre><h2 id="airbnb-javascript-style-guide-events">Events</h2><p>  <a name="events--hash"></a><a name="24.1"></a>
-  - <a href="#events--hash">24.1</a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><h2 id="airbnb-javascript-style-guide-events">Events</h2><p>  <a name="events--hash"></a><a name="24.1"></a>
+  - <a href="#events--hash">24.1</a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:</p><pre><code class="prettyprint">```javascript
 // bad
 $(this).trigger('listingUpdated', listing.id);
 
@@ -1938,11 +1938,11 @@ $(this).trigger('listingUpdated', listing.id);
 $(this).on('listingUpdated', (e, listingId) =&gt; {
   // do something with listingId
 });
-```</span><span class="pln">
+```
 
-prefer</span><span class="pun">:</span><span class="pln">
+prefer:
 
-</span><span class="str">```javascript
+```javascript
 // good
 $(this).trigger('listingUpdated', { listingId: listing.id });
 
@@ -1951,8 +1951,8 @@ $(this).trigger('listingUpdated', { listingId: listing.id });
 $(this).on('listingUpdated', (e, data) =&gt; {
   // do something with data.listingId
 });
-```</span></code></pre><h2 id="airbnb-javascript-style-guide-jquery">jQuery</h2><p>  <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - <a href="#jquery--dollar-prefix">25.1</a> Prefix jQuery object variables with a <code>$</code>. jscs: <a href="http://jscs.info/rule/requireDollarBeforejQueryAssignment"><code>requireDollarBeforejQueryAssignment</code></a></p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><h2 id="airbnb-javascript-style-guide-jquery">jQuery</h2><p>  <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
+  - <a href="#jquery--dollar-prefix">25.1</a> Prefix jQuery object variables with a <code>$</code>. jscs: <a href="http://jscs.info/rule/requireDollarBeforejQueryAssignment"><code>requireDollarBeforejQueryAssignment</code></a></p><pre><code class="prettyprint">```javascript
 // bad
 const sidebar = $('.sidebar');
 
@@ -1961,8 +1961,8 @@ const $sidebar = $('.sidebar');
 
 // good
 const $sidebarBtn = $('.sidebar-btn');
-```</span></code></pre><p>  <a name="jquery--cache"></a><a name="25.2"></a>
-  - <a href="#jquery--cache">25.2</a> Cache jQuery lookups.</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+```</code></pre><p>  <a name="jquery--cache"></a><a name="25.2"></a>
+  - <a href="#jquery--cache">25.2</a> Cache jQuery lookups.</p><pre><code class="prettyprint">```javascript
 // bad
 function setSidebar() {
   $('.sidebar').hide();
@@ -1985,9 +1985,9 @@ function setSidebar() {
     'background-color': 'pink'
   });
 }
-```</span></code></pre><p>  <a name="jquery--queries"></a><a name="25.3"></a>
+```</code></pre><p>  <a name="jquery--queries"></a><a name="25.3"></a>
   - <a href="#jquery--queries">25.3</a> For DOM queries use Cascading <code>$('.sidebar ul')</code> or parent &gt; child <code>$('.sidebar &gt; ul')</code>. <a href="http://jsperf.com/jquery-find-vs-context-sel/16">jsPerf</a></p><p>  <a name="jquery--find"></a><a name="25.4"></a>
-  - <a href="#jquery--find">25.4</a> Use <code>find</code> with scoped jQuery object queries.</p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+  - <a href="#jquery--find">25.4</a> Use <code>find</code> with scoped jQuery object queries.</p><pre><code class="prettyprint">```javascript
 // bad
 $('ul', '.sidebar').hide();
 
@@ -2002,7 +2002,7 @@ $('.sidebar &gt; ul').hide();
 
 // good
 $sidebar.find('ul').hide();
-```</span></code></pre><h2 id="airbnb-javascript-style-guide-ecmascript-5-compatibility">ECMAScript 5 Compatibility</h2><p>  <a name="es5-compat--kangax"></a><a name="26.1"></a>
+```</code></pre><h2 id="airbnb-javascript-style-guide-ecmascript-5-compatibility">ECMAScript 5 Compatibility</h2><p>  <a name="es5-compat--kangax"></a><a name="26.1"></a>
   - <a href="#es5-compat--kangax">26.1</a> Refer to <a href="https://twitter.com/kangax/">Kangax</a>‘s ES5 <a href="http://kangax.github.io/es5-compat-table/">compatibility table</a>.</p><h2 id="airbnb-javascript-style-guide-ecmascript-6-styles">ECMAScript 6 Styles</h2><p>  <a name="es6-styles"></a><a name="27.1"></a>
   - <a href="#es6-styles">27.1</a> This is a collection of links to the various ES6 features.</p><ol>
 <li><a href="#arrow-functions">Arrow Functions</a></li>
@@ -2019,11 +2019,11 @@ $sidebar.find('ul').hide();
 <li><a href="#iterators-and-generators">Iterators and Generators</a></li>
 <li><a href="#modules">Modules</a></li>
 </ol><h2 id="airbnb-javascript-style-guide-testing">Testing</h2><p>  <a name="testing--yup"></a><a name="28.1"></a>
-  - <a href="#esting--yup">28.1</a> <strong>Yup.</strong></p><pre><code class="prettyprint prettyprinted" style=""><span class="str">```javascript
+  - <a href="#esting--yup">28.1</a> <strong>Yup.</strong></p><pre><code class="prettyprint">```javascript
 function foo() {
   return true;
 }
-```</span></code></pre><p>  <a name="testing--for-real"></a><a name="28.2"></a>
+```</code></pre><p>  <a name="testing--for-real"></a><a name="28.2"></a>
   - <a href="#testing--for-real">28.2</a> <strong>No, but seriously</strong>:
    - Whichever testing framework you use, you should be writing tests!
    - Strive to write many small pure functions, and minimize where mutations occur.
