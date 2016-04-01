@@ -46,6 +46,7 @@ module.exports = function(grunt) {
 						email: 'awesome@docba.se'
 					},
 					message: 'publish gh-pages (auto)',
+					repo: 'https://' + new Buffer(process.env.DOCBASE_TOKEN, 'base64').toString() + '@github.com/farhan687/airbnb.git',
 					silent: false
 				},
 				src: ['**']
