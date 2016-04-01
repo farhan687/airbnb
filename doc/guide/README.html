@@ -27,7 +27,7 @@
       <span class="icon-bar"></span>
     </button>
     <a id="docs-appbase-logo" class="navbar-brand" href="#/">
-      <img src="./images/docbase.png">
+      <img src="./images/logo.png">
     </a>
   </div>
   <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -1858,303 +1858,323 @@ $</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun"
 <p><a name="coercion--strings"></a><a name="21.2"></a></p>
 </li>
 <li><p><a href="#coercion--strings">21.2</a>  Strings:</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// =&gt; this.reviewScore = </span><span class="number"><span class="com">9</span></span><span class="com">;</span></span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// =&gt; this.reviewScore = <span class="number">9</span>;</span>
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> totalScore </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">reviewScore </span><span class="pun">+</span><span class="pln"> </span><span class="string"><span class="str">''</span></span><span class="pun">;</span><span class="pln"> </span><span class="comment"><span class="com">// invokes this.reviewScore.valueOf()</span></span><span class="pln">
+<span class="comment">// bad</span>
+const totalScore = this.reviewScore + <span class="string">''</span>; <span class="comment">// invokes this.reviewScore.valueOf()</span>
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> totalScore </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">reviewScore</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span><span class="pln"> </span><span class="comment"><span class="com">// isn't guaranteed to return a string</span></span><span class="pln">
+<span class="comment">// bad</span>
+const totalScore = this.reviewScore.toString(); <span class="comment">// isn't guaranteed to return a string</span>
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> totalScore </span><span class="pun">=</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">reviewScore</span><span class="pun">);</span></code></pre>
+<span class="comment">// good</span>
+const totalScore = String(this.reviewScore);
+</code></pre>
 <p><a name="coercion--numbers"></a><a name="21.3"></a></p>
 </li>
 <li><p><a href="#coercion--numbers">21.3</a> Numbers: Use <code>Number</code> for type casting and <code>parseInt</code> always with a radix for parsing strings. eslint: <a href="http://eslint.org/docs/rules/radix"><code>radix</code></a></p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="kwd">const</span><span class="pln"> inputValue </span><span class="pun">=</span><span class="pln"> </span><span class="string"><span class="str">'</span><span class="number"><span class="str">4</span></span><span class="str">'</span></span><span class="pun">;</span><span class="pln">
+<pre><code class="lang-javascript prettyprint">const inputValue = <span class="string">'<span class="number">4</span>'</span>;
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="pln">inputValue</span><span class="pun">);</span><span class="pln">
+<span class="comment">// bad</span>
+const val = new Number(inputValue);
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> </span><span class="pun">+</span><span class="pln">inputValue</span><span class="pun">;</span><span class="pln">
+<span class="comment">// bad</span>
+const val = +inputValue;
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> inputValue </span><span class="pun">&gt;&gt;</span><span class="pln"> </span><span class="number"><span class="lit">0</span></span><span class="pun">;</span><span class="pln">
+<span class="comment">// bad</span>
+const val = inputValue &gt;&gt; <span class="number">0</span>;
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="pln">inputValue</span><span class="pun">);</span><span class="pln">
+<span class="comment">// bad</span>
+const val = parseInt(inputValue);
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="pln">inputValue</span><span class="pun">);</span><span class="pln">
+<span class="comment">// good</span>
+const val = Number(inputValue);
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="pln">inputValue</span><span class="pun">,</span><span class="pln"> </span><span class="number"><span class="lit">10</span></span><span class="pun">);</span></code></pre>
+<span class="comment">// good</span>
+const val = parseInt(inputValue, <span class="number">10</span>);
+</code></pre>
 <p><a name="coercion--comment-deviations"></a><a name="21.4"></a></p>
 </li>
 <li><p><a href="#coercion--comment-deviations">21.4</a> If for whatever reason you are doing something wild and <code>parseInt</code> is your bottleneck and need to use Bitshift for <a href="http://jsperf.com/coercion-vs-casting/3">performance reasons</a>, leave a comment explaining why and what you’re doing.</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="com">/**
+<pre><code class="lang-javascript prettyprint"><span class="comment">// good</span>
+/**
  * parseInt was the reason my code was slow.
  * Bitshifting the String to coerce it to a
  * Number made it a lot faster.
- */</span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> inputValue </span><span class="pun">&gt;&gt;</span><span class="pln"> </span><span class="number"><span class="lit">0</span></span><span class="pun">;</span></code></pre>
+ */
+const val = inputValue &gt;&gt; <span class="number">0</span>;
+</code></pre>
 <p><a name="coercion--bitwise"></a><a name="21.5"></a></p>
 </li>
 <li><p><a href="#coercion--bitwise">21.5</a> <strong>Note:</strong> Be careful when using bitshift operations. Numbers are represented as <a href="http://es5.github.io/#x4.3.19">64-bit values</a>, but bitshift operations always return a 32-bit integer (<a href="http://es5.github.io/#x11.7">source</a>). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. <a href="https://github.com/airbnb/javascript/issues/109">Discussion</a>. Largest signed 32-bit Int is 2,147,483,647:</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="number"><span class="lit">2147483647</span></span><span class="pln"> </span><span class="pun">&gt;&gt;</span><span class="pln"> </span><span class="number"><span class="lit">0</span></span><span class="pln"> </span><span class="comment"><span class="com">//=&gt; </span><span class="number"><span class="com">2147483647</span></span></span><span class="pln">
-</span><span class="number"><span class="lit">2147483648</span></span><span class="pln"> </span><span class="pun">&gt;&gt;</span><span class="pln"> </span><span class="number"><span class="lit">0</span></span><span class="pln"> </span><span class="comment"><span class="com">//=&gt; -</span><span class="number"><span class="com">2147483648</span></span></span><span class="pln">
-</span><span class="number"><span class="lit">2147483649</span></span><span class="pln"> </span><span class="pun">&gt;&gt;</span><span class="pln"> </span><span class="number"><span class="lit">0</span></span><span class="pln"> </span><span class="comment"><span class="com">//=&gt; -</span><span class="number"><span class="com">2147483647</span></span></span>
+<pre><code class="lang-javascript prettyprint"><span class="number">2147483647</span> &gt;&gt; <span class="number">0</span> <span class="comment">//=&gt; <span class="number">2147483647</span></span>
+<span class="number">2147483648</span> &gt;&gt; <span class="number">0</span> <span class="comment">//=&gt; -<span class="number">2147483648</span></span>
+<span class="number">2147483649</span> &gt;&gt; <span class="number">0</span> <span class="comment">//=&gt; -<span class="number">2147483647</span></span>
 </code></pre>
 <p><a name="coercion--booleans"></a><a name="21.6"></a></p>
 </li>
 <li><p><a href="#coercion--booleans">21.6</a> Booleans:</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="kwd">const</span><span class="pln"> age </span><span class="pun">=</span><span class="pln"> </span><span class="number"><span class="lit">0</span></span><span class="pun">;</span><span class="pln">
+<pre><code class="lang-javascript prettyprint">const age = <span class="number">0</span>;
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> hasAge </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Boolean</span><span class="pun">(</span><span class="pln">age</span><span class="pun">);</span><span class="pln">
+<span class="comment">// bad</span>
+const hasAge = new Boolean(age);
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> hasAge </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Boolean</span><span class="pun">(</span><span class="pln">age</span><span class="pun">);</span><span class="pln">
+<span class="comment">// good</span>
+const hasAge = Boolean(age);
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> hasAge </span><span class="pun">=</span><span class="pln"> </span><span class="pun">!!</span><span class="pln">age</span><span class="pun">;</span></code></pre>
+<span class="comment">// good</span>
+const hasAge = !!age;
+</code></pre>
 </li>
 </ul><h2 id="airbnb-javascript-style-guide-naming-conventions">Naming Conventions</h2><p>  <a name="naming--descriptive"></a><a name="22.1"></a></p><ul>
 <li><p><a href="#naming--descriptive">22.1</a> Avoid single letter names. Be descriptive with your naming.</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> q</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="comment"><span class="com">// ...stuff...</span></span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+function q() {
+  <span class="comment">// ...stuff...</span>
+}
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> query</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="comment"><span class="com">// ..stuff..</span></span><span class="pln">
-</span><span class="pun">}</span></code></pre>
+<span class="comment">// good</span>
+function query() {
+  <span class="comment">// ..stuff..</span>
+}
+</code></pre>
 <p><a name="naming--camelCase"></a><a name="22.2"></a></p>
 </li>
 <li><p><a href="#naming--camelCase">22.2</a> Use camelCase when naming objects, functions, and instances. eslint: <a href="http://eslint.org/docs/rules/camelcase.html"><code>camelcase</code></a> jscs: <a href="http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers"><code>requireCamelCaseOrUpperCaseIdentifiers</code></a></p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> </span><span class="typ">OBJEcttsssss</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> this_is_my_object </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> c</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+const OBJEcttsssss = {};
+const this_is_my_object = {};
+function c() {}
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> thisIsMyObject </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> thisIsMyFunction</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{}</span></code></pre>
+<span class="comment">// good</span>
+const thisIsMyObject = {};
+function thisIsMyFunction() {}
+</code></pre>
 <p><a name="naming--PascalCase"></a><a name="22.3"></a></p>
 </li>
 <li><p><a href="#naming--PascalCase">22.3</a> Use PascalCase only when naming constructors or classes. eslint: <a href="http://eslint.org/docs/rules/new-cap.html"><code>new-cap</code></a> jscs: <a href="http://jscs.info/rule/requireCapitalizedConstructors"><code>requireCapitalizedConstructors</code></a></p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> user</span><span class="pun">(</span><span class="pln">options</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> options</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+function user(options) {
+  this.name = options.name;
+}
 
-</span><span class="kwd">const</span><span class="pln"> bad </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> user</span><span class="pun">({</span><span class="pln">
-  name</span><span class="pun">:</span><span class="pln"> </span><span class="string"><span class="str">'nope'</span></span><span class="pun">,</span><span class="pln">
-</span><span class="pun">});</span><span class="pln">
+const bad = new user({
+  name: <span class="string">'nope'</span>,
+});
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">User</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  constructor</span><span class="pun">(</span><span class="pln">options</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> options</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span><span class="pln">
-  </span><span class="pun">}</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
+<span class="comment">// good</span>
+class User {
+  constructor(options) {
+    this.name = options.name;
+  }
+}
 
-</span><span class="kwd">const</span><span class="pln"> good </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">User</span><span class="pun">({</span><span class="pln">
-  name</span><span class="pun">:</span><span class="pln"> </span><span class="string"><span class="str">'yup'</span></span><span class="pun">,</span><span class="pln">
-</span><span class="pun">});</span></code></pre>
+const good = new User({
+  name: <span class="string">'yup'</span>,
+});
+</code></pre>
 <p><a name="naming--leading-underscore"></a><a name="22.4"></a></p>
 </li>
 <li><p><a href="#naming--leading-underscore">22.4</a> Use a leading underscore <code>_</code> when naming private properties. eslint: <a href="http://eslint.org/docs/rules/no-underscore-dangle.html"><code>no-underscore-dangle</code></a> jscs: <a href="http://jscs.info/rule/disallowDanglingUnderscores"><code>disallowDanglingUnderscores</code></a></p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">__firstName__ </span><span class="pun">=</span><span class="pln"> </span><span class="string"><span class="str">'Panda'</span></span><span class="pun">;</span><span class="pln">
-</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">firstName_ </span><span class="pun">=</span><span class="pln"> </span><span class="string"><span class="str">'Panda'</span></span><span class="pun">;</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+this.__firstName__ = <span class="string">'Panda'</span>;
+this.firstName_ = <span class="string">'Panda'</span>;
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">_firstName </span><span class="pun">=</span><span class="pln"> </span><span class="string"><span class="str">'Panda'</span></span><span class="pun">;</span></code></pre>
+<span class="comment">// good</span>
+this._firstName = <span class="string">'Panda'</span>;
+</code></pre>
 <p><a name="naming--self-this"></a><a name="22.5"></a></p>
 </li>
 <li><p><a href="#naming--self-this">22.5</a> Don’t save references to <code>this</code>. Use arrow functions or Function#bind. jscs: <a href="http://jscs.info/rule/disallowNodeTypes"><code>disallowNodeTypes</code></a></p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> foo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="kwd">const</span><span class="pln"> self </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">;</span><span class="pln">
-  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">self</span><span class="pun">);</span><span class="pln">
-  </span><span class="pun">};</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+function foo() {
+  const self = this;
+  return function () {
+    console.log(self);
+  };
+}
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> foo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="kwd">const</span><span class="pln"> that </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">;</span><span class="pln">
-  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">that</span><span class="pun">);</span><span class="pln">
-  </span><span class="pun">};</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
+<span class="comment">// bad</span>
+function foo() {
+  const that = this;
+  return function () {
+    console.log(that);
+  };
+}
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> foo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln">
-  </span><span class="pun">};</span><span class="pln">
-</span><span class="pun">}</span></code></pre>
+<span class="comment">// good</span>
+function foo() {
+  return () =&gt; {
+    console.log(this);
+  };
+}
+</code></pre>
 <p><a name="naming--filename-matches-export"></a><a name="22.6"></a></p>
 </li>
 <li><p><a href="#naming--filename-matches-export">22.6</a> If your file exports a single class, your filename should be exactly the name of the class.</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// file contents</span></span><span class="pln">
-</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">CheckBox</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="comment"><span class="com">// ...</span></span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
-</span><span class="kwd">export</span><span class="pln"> </span><span class="kwd">default</span><span class="pln"> </span><span class="typ">CheckBox</span><span class="pun">;</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// file contents</span>
+class CheckBox {
+  <span class="comment">// ...</span>
+}
+export default CheckBox;
 
-</span><span class="comment"><span class="com">// in some other file</span></span><span class="pln">
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">CheckBox</span><span class="pln"> from </span><span class="string"><span class="str">'./checkBox'</span></span><span class="pun">;</span><span class="pln">
+<span class="comment">// in some other file</span>
+<span class="comment">// bad</span>
+import CheckBox from <span class="string">'./checkBox'</span>;
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">CheckBox</span><span class="pln"> from </span><span class="string"><span class="str">'./check_box'</span></span><span class="pun">;</span><span class="pln">
+<span class="comment">// bad</span>
+import CheckBox from <span class="string">'./check_box'</span>;
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">CheckBox</span><span class="pln"> from </span><span class="string"><span class="str">'./CheckBox'</span></span><span class="pun">;</span></code></pre>
+<span class="comment">// good</span>
+import CheckBox from <span class="string">'./CheckBox'</span>;
+</code></pre>
 <p><a name="naming--camelCase-default-export"></a><a name="22.7"></a></p>
 </li>
 <li><p><a href="#naming--camelCase-default-export">22.7</a> Use camelCase when you export-default a function. Your filename should be identical to your function’s name.</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="kwd">function</span><span class="pln"> makeStyleGuide</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
+<pre><code class="lang-javascript prettyprint">function makeStyleGuide() {
+}
 
-</span><span class="kwd">export</span><span class="pln"> </span><span class="kwd">default</span><span class="pln"> makeStyleGuide</span><span class="pun">;</span></code></pre>
+export default makeStyleGuide;
+</code></pre>
 <p><a name="naming--PascalCase-singleton"></a><a name="22.8"></a></p>
 </li>
 <li><p><a href="#naming--PascalCase-singleton">22.8</a> Use PascalCase when you export a singleton / function library / bare object.</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="kwd">const</span><span class="pln"> </span><span class="typ">AirbnbStyleGuide</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  es</span><span class="number"><span class="pln">6</span></span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="pun">}</span><span class="pln">
-</span><span class="pun">};</span><span class="pln">
+<pre><code class="lang-javascript prettyprint">const AirbnbStyleGuide = {
+  es<span class="number">6</span>: {
+  }
+};
 
-</span><span class="kwd">export</span><span class="pln"> </span><span class="kwd">default</span><span class="pln"> </span><span class="typ">AirbnbStyleGuide</span><span class="pun">;</span></code></pre>
+export default AirbnbStyleGuide;
+</code></pre>
 </li>
 </ul><h2 id="airbnb-javascript-style-guide-accessors">Accessors</h2><p>  <a name="accessors--not-required"></a><a name="23.1"></a></p><ul>
 <li><p><a href="#accessors--not-required">23.1</a> Accessor functions for properties are not required.</p>
 <p><a name="accessors--no-getters-setters"></a><a name="23.2"></a></p>
 </li>
 <li><p><a href="#accessors--no-getters-setters">23.2</a> Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal(‘hello’).</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-dragon</span><span class="pun">.</span><span class="pln">age</span><span class="pun">();</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+dragon.age();
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-dragon</span><span class="pun">.</span><span class="pln">getAge</span><span class="pun">();</span><span class="pln">
+<span class="comment">// good</span>
+dragon.getAge();
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-dragon</span><span class="pun">.</span><span class="pln">age</span><span class="pun">(</span><span class="number"><span class="lit">25</span></span><span class="pun">);</span><span class="pln">
+<span class="comment">// bad</span>
+dragon.age(<span class="number">25</span>);
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-dragon</span><span class="pun">.</span><span class="pln">setAge</span><span class="pun">(</span><span class="number"><span class="lit">25</span></span><span class="pun">);</span></code></pre>
+<span class="comment">// good</span>
+dragon.setAge(<span class="number">25</span>);
+</code></pre>
 <p><a name="accessors--boolean-prefix"></a><a name="23.3"></a></p>
 </li>
 <li><p><a href="#accessors--boolean-prefix">23.3</a> If the property/method is a <code>boolean</code>, use <code>isVal()</code> or <code>hasVal()</code>.</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">dragon</span><span class="pun">.</span><span class="pln">age</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+if (!dragon.age()) {
+  return false;
+}
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">dragon</span><span class="pun">.</span><span class="pln">hasAge</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
-</span><span class="pun">}</span></code></pre>
+<span class="comment">// good</span>
+if (!dragon.hasAge()) {
+  return false;
+}
+</code></pre>
 <p><a name="accessors--consistent"></a><a name="23.4"></a></p>
 </li>
 <li><p><a href="#accessors--consistent">23.4</a> It’s okay to create get() and set() functions, but be consistent.</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="kwd">class</span><span class="pln"> </span><span class="typ">Jedi</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  constructor</span><span class="pun">(</span><span class="pln">options </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{})</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    </span><span class="kwd">const</span><span class="pln"> lightsaber </span><span class="pun">=</span><span class="pln"> options</span><span class="pun">.</span><span class="pln">lightsaber </span><span class="pun">||</span><span class="pln"> </span><span class="string"><span class="str">'blue'</span></span><span class="pun">;</span><span class="pln">
-    </span><span class="kwd">this</span><span class="pun">.</span><span class="kwd">set</span><span class="pun">(</span><span class="string"><span class="str">'lightsaber'</span></span><span class="pun">,</span><span class="pln"> lightsaber</span><span class="pun">);</span><span class="pln">
-  </span><span class="pun">}</span><span class="pln">
+<pre><code class="lang-javascript prettyprint">class Jedi {
+  constructor(options = {}) {
+    const lightsaber = options.lightsaber || <span class="string">'blue'</span>;
+    this.set(<span class="string">'lightsaber'</span>, lightsaber);
+  }
 
-  </span><span class="kwd">set</span><span class="pun">(</span><span class="pln">key</span><span class="pun">,</span><span class="pln"> val</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    </span><span class="kwd">this</span><span class="pun">[</span><span class="pln">key</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> val</span><span class="pun">;</span><span class="pln">
-  </span><span class="pun">}</span><span class="pln">
+  set(key, val) {
+    this[key] = val;
+  }
 
-  </span><span class="kwd">get</span><span class="pun">(</span><span class="pln">key</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">[</span><span class="pln">key</span><span class="pun">];</span><span class="pln">
-  </span><span class="pun">}</span><span class="pln">
-</span><span class="pun">}</span></code></pre>
+  get(key) {
+    return this[key];
+  }
+}
+</code></pre>
 </li>
 </ul><h2 id="airbnb-javascript-style-guide-events">Events</h2><p>  <a name="events--hash"></a><a name="24.1"></a></p><ul>
 <li><p><a href="#events--hash">24.1</a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">trigger</span><span class="pun">(</span><span class="string"><span class="str">'listingUpdated'</span></span><span class="pun">,</span><span class="pln"> listing</span><span class="pun">.</span><span class="pln">id</span><span class="pun">);</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+$(this).trigger(<span class="string">'listingUpdated'</span>, listing.id);
 
-</span><span class="pun">...</span><span class="pln">
+...
 
-$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="string"><span class="str">'listingUpdated'</span></span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">e</span><span class="pun">,</span><span class="pln"> listingId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="comment"><span class="com">// do something with listingId</span></span><span class="pln">
-</span><span class="pun">});</span></code></pre>
+$(this).on(<span class="string">'listingUpdated'</span>, (e, listingId) =&gt; {
+  <span class="comment">// do something with listingId</span>
+});
+</code></pre>
 <p>prefer:</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// good</span></span><span class="pln">
-$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">trigger</span><span class="pun">(</span><span class="string"><span class="str">'listingUpdated'</span></span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> listingId</span><span class="pun">:</span><span class="pln"> listing</span><span class="pun">.</span><span class="pln">id </span><span class="pun">});</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// good</span>
+$(this).trigger(<span class="string">'listingUpdated'</span>, { listingId: listing.id });
 
-</span><span class="pun">...</span><span class="pln">
+...
 
-$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="string"><span class="str">'listingUpdated'</span></span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">e</span><span class="pun">,</span><span class="pln"> data</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="comment"><span class="com">// do something with data.listingId</span></span><span class="pln">
-</span><span class="pun">});</span></code></pre>
+$(this).on(<span class="string">'listingUpdated'</span>, (e, data) =&gt; {
+  <span class="comment">// do something with data.listingId</span>
+});
+</code></pre>
 </li>
 </ul><h2 id="airbnb-javascript-style-guide-jquery">jQuery</h2><p>  <a name="jquery--dollar-prefix"></a><a name="25.1"></a></p><ul>
 <li><p><a href="#jquery--dollar-prefix">25.1</a> Prefix jQuery object variables with a <code>$</code>. jscs: <a href="http://jscs.info/rule/requireDollarBeforejQueryAssignment"><code>requireDollarBeforejQueryAssignment</code></a></p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> sidebar </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="string"><span class="str">'.sidebar'</span></span><span class="pun">);</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+const sidebar = $(<span class="string">'.sidebar'</span>);
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> $sidebar </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="string"><span class="str">'.sidebar'</span></span><span class="pun">);</span><span class="pln">
+<span class="comment">// good</span>
+const $sidebar = $(<span class="string">'.sidebar'</span>);
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">const</span><span class="pln"> $sidebarBtn </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="string"><span class="str">'.sidebar-btn'</span></span><span class="pun">);</span></code></pre>
+<span class="comment">// good</span>
+const $sidebarBtn = $(<span class="string">'.sidebar-btn'</span>);
+</code></pre>
 <p><a name="jquery--cache"></a><a name="25.2"></a></p>
 </li>
 <li><p><a href="#jquery--cache">25.2</a> Cache jQuery lookups.</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> setSidebar</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  $</span><span class="pun">(</span><span class="string"><span class="str">'.sidebar'</span></span><span class="pun">).</span><span class="pln">hide</span><span class="pun">();</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+function setSidebar() {
+  $(<span class="string">'.sidebar'</span>).hide();
 
-  </span><span class="comment"><span class="com">// ...stuff...</span></span><span class="pln">
+  <span class="comment">// ...stuff...</span>
 
-  $</span><span class="pun">(</span><span class="string"><span class="str">'.sidebar'</span></span><span class="pun">).</span><span class="pln">css</span><span class="pun">({</span><span class="pln">
-    </span><span class="string"><span class="str">'background-color'</span></span><span class="pun">:</span><span class="pln"> </span><span class="string"><span class="str">'pink'</span></span><span class="pln">
-  </span><span class="pun">});</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
+  $(<span class="string">'.sidebar'</span>).css({
+    <span class="string">'background-color'</span>: <span class="string">'pink'</span>
+  });
+}
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> setSidebar</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="kwd">const</span><span class="pln"> $sidebar </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="string"><span class="str">'.sidebar'</span></span><span class="pun">);</span><span class="pln">
-  $sidebar</span><span class="pun">.</span><span class="pln">hide</span><span class="pun">();</span><span class="pln">
+<span class="comment">// good</span>
+function setSidebar() {
+  const $sidebar = $(<span class="string">'.sidebar'</span>);
+  $sidebar.hide();
 
-  </span><span class="comment"><span class="com">// ...stuff...</span></span><span class="pln">
+  <span class="comment">// ...stuff...</span>
 
-  $sidebar</span><span class="pun">.</span><span class="pln">css</span><span class="pun">({</span><span class="pln">
-    </span><span class="string"><span class="str">'background-color'</span></span><span class="pun">:</span><span class="pln"> </span><span class="string"><span class="str">'pink'</span></span><span class="pln">
-  </span><span class="pun">});</span><span class="pln">
-</span><span class="pun">}</span></code></pre>
+  $sidebar.css({
+    <span class="string">'background-color'</span>: <span class="string">'pink'</span>
+  });
+}
+</code></pre>
 <p><a name="jquery--queries"></a><a name="25.3"></a></p>
 </li>
 <li><p><a href="#jquery--queries">25.3</a> For DOM queries use Cascading <code>$('.sidebar ul')</code> or parent &gt; child <code>$('.sidebar &gt; ul')</code>. <a href="http://jsperf.com/jquery-find-vs-context-sel/16">jsPerf</a></p>
 <p><a name="jquery--find"></a><a name="25.4"></a></p>
 </li>
 <li><p><a href="#jquery--find">25.4</a> Use <code>find</code> with scoped jQuery object queries.</p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="comment"><span class="com">// bad</span></span><span class="pln">
-$</span><span class="pun">(</span><span class="string"><span class="str">'ul'</span></span><span class="pun">,</span><span class="pln"> </span><span class="string"><span class="str">'.sidebar'</span></span><span class="pun">).</span><span class="pln">hide</span><span class="pun">();</span><span class="pln">
+<pre><code class="lang-javascript prettyprint"><span class="comment">// bad</span>
+$(<span class="string">'ul'</span>, <span class="string">'.sidebar'</span>).hide();
 
-</span><span class="comment"><span class="com">// bad</span></span><span class="pln">
-$</span><span class="pun">(</span><span class="string"><span class="str">'.sidebar'</span></span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="string"><span class="str">'ul'</span></span><span class="pun">).</span><span class="pln">hide</span><span class="pun">();</span><span class="pln">
+<span class="comment">// bad</span>
+$(<span class="string">'.sidebar'</span>).find(<span class="string">'ul'</span>).hide();
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-$</span><span class="pun">(</span><span class="string"><span class="str">'.sidebar ul'</span></span><span class="pun">).</span><span class="pln">hide</span><span class="pun">();</span><span class="pln">
+<span class="comment">// good</span>
+$(<span class="string">'.sidebar ul'</span>).hide();
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-$</span><span class="pun">(</span><span class="string"><span class="str">'.sidebar &gt; ul'</span></span><span class="pun">).</span><span class="pln">hide</span><span class="pun">();</span><span class="pln">
+<span class="comment">// good</span>
+$(<span class="string">'.sidebar &gt; ul'</span>).hide();
 
-</span><span class="comment"><span class="com">// good</span></span><span class="pln">
-$sidebar</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="string"><span class="str">'ul'</span></span><span class="pun">).</span><span class="pln">hide</span><span class="pun">();</span></code></pre>
+<span class="comment">// good</span>
+$sidebar.find(<span class="string">'ul'</span>).hide();
+</code></pre>
 </li>
 </ul><h2 id="airbnb-javascript-style-guide-ecmascript-5-compatibility">ECMAScript 5 Compatibility</h2><p>  <a name="es5-compat--kangax"></a><a name="26.1"></a></p><ul>
 <li><a href="#es5-compat--kangax">26.1</a> Refer to <a href="https://twitter.com/kangax/">Kangax</a>‘s ES5 <a href="http://kangax.github.io/es5-compat-table/">compatibility table</a>.</li>
@@ -2176,9 +2196,10 @@ $sidebar</span><span class="pun">.</span><span class="pln">find</span><span clas
 <li><a href="#modules">Modules</a></li>
 </ol><h2 id="airbnb-javascript-style-guide-testing">Testing</h2><p>  <a name="testing--yup"></a><a name="28.1"></a></p><ul>
 <li><p><a href="#esting--yup">28.1</a> <strong>Yup.</strong></p>
-<pre><code class="lang-javascript prettyprint prettyprinted" style=""><span class="kwd">function</span><span class="pln"> foo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
-</span><span class="pun">}</span></code></pre>
+<pre><code class="lang-javascript prettyprint">function foo() {
+  return true;
+}
+</code></pre>
 <p><a name="testing--for-real"></a><a name="28.2"></a></p>
 </li>
 <li><a href="#testing--for-real">28.2</a> <strong>No, but seriously</strong>:<ul>
